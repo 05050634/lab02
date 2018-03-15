@@ -1,35 +1,29 @@
-const byte a[]={2,3,4,5,8,9,10,11};
-
-byte i;
-
-void setup()
+const byte startPin = 4;
+const byte endPin = 11;
+void setup() 
 {
-   for(i=0;i<=7;i++)
-   {
-      pinMode(a[i],OUTPUT);
-   }
+     for (byte i = startPin; i<= endPin; i++) 
+    {
+        pinMode(i, OUTPUT);
+    }
 }
-
-
 void loop()
 {
-  for(i=0;i<=7;i++)
-  digitalWrite(a[i],HIGH);
+    byte i;
+
+    for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, HIGH);
+         delay (100);
+         digitalWrite(i,LOW);
+         delay (100);
+    }
   
-  for(i=0;i<=7;i++)
-  {
-    digitalWrite(a[i],LOW);
-    delay(100);
-    digitalWrite(a[i],HIGH);
-    delay(100);
-  }
-  
-  for(i=7;i>0;i--)
-  {
-    digitalWrite(a[i],LOW);
-    delay(100);
-    digitalWrite(a[i],HIGH);
-    delay(100);
-  }
-  
+    for (i=endPin; i>= startPin; i--) 
+    {
+         digitalWrite(i, HIGH);
+         delay (100);
+         digitalWrite(i,LOW);
+         delay (100);
+    }   
 }
